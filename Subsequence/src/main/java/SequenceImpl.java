@@ -13,13 +13,25 @@ public class SequenceImpl implements Subsequence {
         System.out.println(a.c1);
         System.out.println(a.c2);
         System.out.println(a.c1.containsAll(a.c2));*/
-        System.out.println(b.find(a.c1, a.c2));
+        b.find(a.c1, a.c2);
 
     }
 
     public boolean find(List x, List y) {
-        y.retainAll(x);
-       return x.containsAll(y);
+        if (x.size() <= y.size()) {
+            y.retainAll(x);
+            if (x.size() == y.size()) {
+                for (int j = 0; j <= x.size() - 1; j++) {
+                    if (x.get(j) != y.get(j)) {
+                        System.out.println("false");
+                        return false;
+                    }
+                }
+            }
+            System.out.println("true");
+            return true;
+        }
+        System.out.println("false");
+        return false;
     }
 }
-
